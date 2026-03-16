@@ -1,0 +1,5 @@
+{
+  "buildCommand": "node scripts/convert-shapefile.js && next build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install"
+}
