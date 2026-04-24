@@ -93,13 +93,112 @@
 </head>
 <body>
     <div id="header">
-        <div style="display: flex; align-items: center;">
-            <h1>Australian Intermodal Terminals</h1>
-            <span id="total-count" class="count-badge">Total: 209</span>
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <div style="display: flex; align-items: center;">
+                <h1>Australian Intermodal Terminals</h1>
+                <span id="total-count" class="count-badge">Total: 209</span>
+            </div>
+            
+            <!-- Search Container -->
+            <div class="search-wrapper">
+                <div class="search-container">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" id="map-search" placeholder="Quick find terminal..." autocomplete="off">
+                    <div id="search-results" class="search-dropdown"></div>
+                </div>
+            </div>
         </div>
-        <div style="font-size: 14px; color: #aaa;">Local Host Environment</div>
+        <div style="font-size: 14px; color: #aaa; font-weight: 500;">Intermodal Map v2.0</div>
     </div>
     <div id="map"></div>
+
+    <style>
+        .search-wrapper {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
+            padding: 2px;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .search-container {
+            position: relative;
+            width: 320px;
+            display: flex;
+            align-items: center;
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 22px;
+            padding: 2px 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .search-container:focus-within {
+            width: 380px;
+            border-color: #FC921F;
+            background: rgba(40, 40, 40, 0.95);
+            box-shadow: 0 0 15px rgba(252, 146, 31, 0.3);
+        }
+        .search-icon {
+            width: 18px;
+            height: 18px;
+            color: #aaa;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        #map-search {
+            width: 100%;
+            padding: 8px 0;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            font-family: inherit;
+        }
+        #map-search::placeholder {
+            color: #777;
+        }
+        .search-dropdown {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            right: 0;
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 12px;
+            max-height: 350px;
+            overflow-y: auto;
+            display: none;
+            z-index: 2000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 8px;
+        }
+        .search-item {
+            padding: 12px 15px;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s;
+            color: #ddd;
+        }
+        .search-item:hover {
+            background: rgba(252, 146, 31, 0.15);
+            color: #fff;
+            transform: translateX(5px);
+        }
+        .search-item .item-id {
+            background: rgba(252, 146, 31, 0.2);
+            color: #FC921F;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-right: 12px;
+            border: 1px solid rgba(252, 146, 31, 0.3);
+        }
+    </style>
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
@@ -181,85 +280,6 @@
         };
         legend.addTo(map);
 
-        // Load Terminals
-        fetch('/api/terminals')
-            .then(response => response.json())
-            .then(data => {
-                let idCounter = 1;
-                const terminalLayer = L.geoJSON(data, {
-                    style: terminalStyle,
-                    onEachFeature: function (feature, layer) {
-                        // Assign dynamic ID
-                        feature.properties.display_id = idCounter++;
-                        
-                        let props = feature.properties;
-                        let popupContent = `
-                            <div style="font-family: sans-serif;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                    <h3 style="margin: 0; color: ${getStatusColor(props.status)}">${props.name || 'Unknown'}</h3>
-                                    <span style="background: #444; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 10px;">ID: ${props.display_id}</span>
-                                </div>
-                                <table style="font-size: 12px; border-collapse: collapse; width: 100%;">
-                                    <tr><td><b>Status:</b></td><td>${props.status || 'N/A'}</td></tr>
-                                    <tr><td><b>Operator:</b></td><td>${props.operator || 'N/A'}</td></tr>
-                                    <tr><td><b>State:</b></td><td>${props.state || 'N/A'}</td></tr>
-                                    <tr><td><b>Locality:</b></td><td>${props.locality_name || 'N/A'}</td></tr>
-                                    <tr><td><b>Hectares:</b></td><td>${props.hectares ? props.hectares.toFixed(2) : 'N/A'}</td></tr>
-                                </table>
-                            </div>
-                        `;
-                        layer.bindPopup(popupContent);
-
-                        // Add permanent label (ID + Name)
-                        const labelText = `<span class="label-id">${feature.properties.display_id}</span> <span class="label-name">${props.name || ''}</span>`;
-                        layer.bindTooltip(labelText, {
-                            permanent: true,
-                            direction: 'right',
-                            className: 'id-label zoom-label',
-                            offset: [10, 0]
-                        });
-                    }
-                }).addTo(map);
-                
-                if(data.features && data.features.length > 0) {
-                    map.fitBounds(terminalLayer.getBounds());
-                    document.getElementById('total-count').innerText = 'Total: ' + data.features.length;
-                }
-                updateLabelVisibility();
-            })
-            .catch(error => console.error('Error loading terminals:', error));
-        
-        // Load PDF Locations
-        fetch('/api/pdf_locations')
-            .then(response => response.json())
-            .then(data => {
-                L.geoJSON(data, {
-                    pointToLayer: function (feature, latlng) {
-                        return L.circleMarker(latlng, {
-                            radius: 6,
-                            fillColor: "#9C27B0",
-                            color: "#fff",
-                            weight: 2,
-                            opacity: 1,
-                            fillOpacity: 0.8
-                        });
-                    },
-                    onEachFeature: function (feature, layer) {
-                        let props = feature.properties;
-                        // Name only, no PDF suffix
-                        layer.bindPopup(`<b>${props.name}</b>`);
-                        
-                        layer.bindTooltip(props.name, {
-                            permanent: true,
-                            direction: 'left',
-                            className: 'id-label zoom-label pdf-label',
-                            offset: [-10, 0]
-                        });
-                    }
-                }).addTo(map);
-            })
-            .catch(error => console.error('Error loading PDF locations:', error));
-
         // Visibility control for labels based on zoom
         function updateLabelVisibility() {
             const zoom = map.getZoom();
@@ -273,6 +293,123 @@
             }
         }
         map.on('zoomend', updateLabelVisibility);
+
+        // Search Logic
+        const allSearchableFeatures = [];
+        const searchInput = document.getElementById('map-search');
+        const searchResults = document.getElementById('search-results');
+
+        function addSearchableFeature(feature, layer) {
+            allSearchableFeatures.push({
+                name: feature.properties.name || 'Unknown',
+                id: feature.properties.display_id || 'New',
+                layer: layer
+            });
+        }
+
+        // Updated Load Terminals to include search registration
+        function loadTerminals() {
+            fetch('/api/terminals')
+                .then(response => response.json())
+                .then(data => {
+                    let idCounter = 1;
+                    const terminalLayer = L.geoJSON(data, {
+                        style: terminalStyle,
+                        onEachFeature: function (feature, layer) {
+                            feature.properties.display_id = idCounter++;
+                            let props = feature.properties;
+                            
+                            let popupContent = `
+                                <div style="font-family: sans-serif;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                        <h3 style="margin: 0; color: ${getStatusColor(props.status)}">${props.name || 'Unknown'}</h3>
+                                        <span style="background: #444; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 10px;">ID: ${props.display_id}</span>
+                                    </div>
+                                    <table style="font-size: 12px; border-collapse: collapse; width: 100%;">
+                                        <tr><td><b>Status:</b></td><td>${props.status || 'N/A'}</td></tr>
+                                        <tr><td><b>Operator:</b></td><td>${props.operator || 'N/A'}</td></tr>
+                                        <tr><td><b>State:</b></td><td>${props.state || 'N/A'}</td></tr>
+                                        <tr><td><b>Locality:</b></td><td>${props.locality_name || 'N/A'}</td></tr>
+                                        <tr><td><b>Hectares:</b></td><td>${props.hectares ? props.hectares.toFixed(2) : 'N/A'}</td></tr>
+                                    </table>
+                                </div>
+                            `;
+                            layer.bindPopup(popupContent);
+                            layer.bindTooltip(`<span class="label-id">${feature.properties.display_id}</span> <span class="label-name">${props.name || ''}</span>`, {
+                                permanent: true, direction: 'right', className: 'id-label zoom-label', offset: [10, 0]
+                            });
+                            
+                            addSearchableFeature(feature, layer);
+                        }
+                    }).addTo(map);
+                    
+                    if(data.features && data.features.length > 0) {
+                        map.fitBounds(terminalLayer.getBounds());
+                        document.getElementById('total-count').innerText = 'Total: ' + data.features.length;
+                    }
+                    updateLabelVisibility();
+                });
+        }
+
+        function loadPdfLocations() {
+            fetch('/api/pdf_locations')
+                .then(response => response.json())
+                .then(data => {
+                    L.geoJSON(data, {
+                        pointToLayer: function (feature, latlng) {
+                            return L.circleMarker(latlng, { radius: 6, fillColor: "#9C27B0", color: "#fff", weight: 2, opacity: 1, fillOpacity: 0.8 });
+                        },
+                        onEachFeature: function (feature, layer) {
+                            layer.bindPopup(`<b>${feature.properties.name}</b>`);
+                            layer.bindTooltip(feature.properties.name, {
+                                permanent: true, direction: 'left', className: 'id-label zoom-label pdf-label', offset: [-10, 0]
+                            });
+                            addSearchableFeature(feature, layer);
+                        }
+                    }).addTo(map);
+                });
+        }
+
+        loadTerminals();
+        loadPdfLocations();
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            searchResults.innerHTML = '';
+            
+            if (query.length < 2) {
+                searchResults.style.display = 'none';
+                return;
+            }
+
+            const filtered = allSearchableFeatures.filter(f => 
+                f.name.toLowerCase().includes(query) || 
+                f.id.toString().includes(query)
+            ).slice(0, 10);
+
+            if (filtered.length > 0) {
+                filtered.forEach(f => {
+                    const div = L.DomUtil.create('div', 'search-item', searchResults);
+                    div.innerHTML = `<span class="item-id">${f.id}</span> ${f.name}`;
+                    div.onclick = () => {
+                        const latlng = f.layer.getLatLng ? f.layer.getLatLng() : f.layer.getBounds().getCenter();
+                        map.setView(latlng, 15);
+                        f.layer.openPopup();
+                        searchResults.style.display = 'none';
+                        searchInput.value = f.name;
+                    };
+                });
+                searchResults.style.display = 'block';
+            } else {
+                searchResults.style.display = 'none';
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-container')) {
+                searchResults.style.display = 'none';
+            }
+        });
 
         // Load User Data (Hidden Legend)
         fetch('/api/user_data')
@@ -288,6 +425,7 @@
                 }
             })
             .catch(error => console.error('Error loading user data:', error));
+    </script>
     </script>
 </body>
 </html>
