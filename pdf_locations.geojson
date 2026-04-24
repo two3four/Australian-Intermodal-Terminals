@@ -34,21 +34,6 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Casino",
-        "status": "New",
-        "color": "purple"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          153.0442329224813,
-          -28.79566820369708
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "name": "Grafton",
         "status": "New",
         "color": "purple"
@@ -688,6 +673,51 @@
         "coordinates": [
           145.78457521981602,
           -16.924728585431346
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Landsborough",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.966,
+          -26.808
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Nambour",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.9511,
+          -26.6269
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gympie",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.6576,
+          -26.1892
         ]
       }
     },

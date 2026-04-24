@@ -1,7 +1,7 @@
 import json
 
 pdf_terminals = [
-    "Moorebank", "Newcastle", "Casino", "Grafton", "Coffs Harbour", "Wauchope", "Taree", "Tamworth", "Armidale", "Narrabri", "Moree", "Campbelltown", "Goulburn", "Yass / Canberra", "Cootamundra", "Wagga Wagga", "Albury", "St Marys", "Picton",
+    "Moorebank", "Newcastle", "Grafton", "Coffs Harbour", "Wauchope", "Taree", "Tamworth", "Armidale", "Narrabri", "Moree", "Campbelltown", "Goulburn", "Yass / Canberra", "Cootamundra", "Wagga Wagga", "Albury", "St Marys", "Picton",
     "Melbourne", "Wangaratta", "Seymour", "Geelong", "Ballarat", "Ararat", "Horsham", "Nhill", "Little River", "Pakenham", "Beveridge", "Bendigo", "Echuca", "Swan Hill", "Colac", "Warrnambool", "Traralgon", "Mildura", "Bairnsdale", "Shepparton",
     "Adelaide", "Bordertown", "Murray Bridge", "Port Augusta", "Tarcoola",
     "Acacia Ridge", "Helensvale", "Toowoomba", "Cairns", "Landsborough", "Nambour", "Gympie", "Maryborough", "Bundaberg", "Gladstone", "Rockhampton", "Mackay", "Townsville",
@@ -51,7 +51,6 @@ fallback_coords = {
     "Tamworth": [150.9333, -31.0833],
     "Taree": [152.4667, -31.9000],
     "Wauchope": [152.7333, -31.4500],
-    "Casino": [153.0500, -28.8500],
     "Seymour": [145.1333, -37.0167],
     "Pakenham": [145.4833, -38.0667],
     "Campbelltown": [150.8167, -34.0667],
@@ -61,6 +60,10 @@ fallback_coords = {
     "Goulburn": [149.7167, -34.7500],
     "Cootamundra": [148.0333, -34.6333],
     "Wagga Wagga": [147.3667, -35.1167],
+    "Gympie": [152.6576, -26.1892],
+    "Nambour": [152.9511, -26.6269],
+    "Landsborough": [152.9660, -26.8080],
+    "Casino": [153.0489, -28.8642],
 }
 
 with open('terminals.geojson', 'r') as f:
