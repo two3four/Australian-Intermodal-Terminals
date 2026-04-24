@@ -95,8 +95,8 @@ for name in pdf_terminals:
             
     if best_match:
         centroid = get_centroid(best_match['geometry'])
-        # Offset slightly
-        offset_centroid = [centroid[0] - 0.05, centroid[1] - 0.05]
+        # Offset slightly North-East to avoid the ocean for coastal cities
+        offset_centroid = [centroid[0] + 0.02, centroid[1] + 0.02]
         new_features.append({
             "type": "Feature",
             "properties": {
