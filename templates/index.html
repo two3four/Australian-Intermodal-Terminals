@@ -171,6 +171,7 @@
             statuses.forEach(status => {
                 div.innerHTML += `<div><div class="legend-color" style="background: ${getStatusColor(status)};"></div> ${status}</div>`;
             });
+            div.innerHTML += '<div><div class="legend-color" style="background: #9C27B0;"></div> New location</div>';
             return div;
         };
         legend.addTo(map);
@@ -222,6 +223,37 @@
                 updateLabelVisibility();
             })
             .catch(error => console.error('Error loading terminals:', error));
+        
+        // Load PDF Locations
+        fetch('/api/pdf_locations')
+            .then(response => response.json())
+            .then(data => {
+                L.geoJSON(data, {
+                    pointToLayer: function (feature, latlng) {
+                        return L.circleMarker(latlng, {
+                            radius: 6,
+                            fillColor: "#9C27B0",
+                            color: "#fff",
+                            weight: 2,
+                            opacity: 1,
+                            fillOpacity: 0.8
+                        });
+                    },
+                    onEachFeature: function (feature, layer) {
+                        let props = feature.properties;
+                        // Name only, no PDF suffix
+                        layer.bindPopup(`<b>${props.name}</b>`);
+                        
+                        layer.bindTooltip(props.name, {
+                            permanent: true,
+                            direction: 'left',
+                            className: 'id-label zoom-label pdf-label',
+                            offset: [-10, 0]
+                        });
+                    }
+                }).addTo(map);
+            })
+            .catch(error => console.error('Error loading PDF locations:', error));
 
         // Visibility control for labels based on zoom
         function updateLabelVisibility() {

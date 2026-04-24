@@ -18,6 +18,13 @@ def get_terminals():
         return send_file(TERMINALS_FILE, mimetype='application/json')
     return jsonify({"error": "Data not found"}), 404
 
+@app.route('/api/pdf_locations')
+def get_pdf_locations():
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'pdf_locations.geojson')
+    if os.path.exists(path):
+        return send_file(path, mimetype='application/json')
+    return jsonify({"type": "FeatureCollection", "features": []})
+
 @app.route('/api/user_data')
 def get_user_data():
     features = []
