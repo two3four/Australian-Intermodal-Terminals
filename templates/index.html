@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Australian Intermodal Terminals - Local</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        #header {
+            background-color: #1e1e1e;
+            padding: 15px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            position: relative;
+        }
+        #header h1 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .count-badge {
+            background: #FC921F;
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-left: 15px;
+        }
+        #map {
+            width: 100vw;
+            height: calc(100vh - 60px);
+        }
+        .legend {
+            background: rgba(30, 30, 30, 0.9);
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            color: #fff;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .legend div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+        .legend-color {
+            width: 14px;
+            height: 14px;
+            margin-right: 10px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        /* ID Label Styling */
+        .id-label {
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+            color: #fff !important;
+            font-weight: bold !important;
+            font-size: 11px !important;
+            text-shadow: 1px 1px 2px #000, -1px -1px 2px #000, 1px -1px 2px #000, -1px 1px 2px #000;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div style="display: flex; align-items: center;">
+            <h1>Australian Intermodal Terminals</h1>
+            <span id="total-count" class="count-badge">Total: 209</span>
+        </div>
+        <div style="font-size: 14px; color: #aaa;">Local Host Environment</div>
+    </div>
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+        // Basemaps
+        const darkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 20
+        });
+
+        const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 19
+        });
+
+        const googleHybrid = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+            attribution: '&copy; Google Maps',
+            maxZoom: 20
+        });
+
+        // Initialize map
+        const map = L.map('map', {
+            center: [-25.2744, 133.7751],
+            zoom: 4,
+            layers: [darkMatter] // Default
+        });
+
+        // Base maps control
+        const baseMaps = {
+            "Dark Mode": darkMatter,
+            "OpenStreetMap": osm,
+            "Google Hybrid": googleHybrid
+        };
+        L.control.layers(baseMaps).addTo(map);
+
+        // Status-based Color Mapping
+        function getStatusColor(status) {
+            switch (status) {
+                case 'Operational': return '#4CAF50';       // Green
+                case 'Operational (Trial)': return '#8BC34A'; // Lime
+                case 'Under Construction': return '#FFC107';  // Amber
+                case 'Proposed': return '#2196F3';           // Blue
+                case 'Closed': return '#F44336';             // Red
+                default: return '#9E9E9E';                   // Grey
+            }
+        }
+
+        // Terminal Layer Style
+        function terminalStyle(feature) {
+            const color = getStatusColor(feature.properties.status);
+            return {
+                color: color,
+                weight: 1.5,
+                opacity: 0.8,
+                fillColor: color,
+                fillOpacity: 0.5
+            };
+        }
+
+        // Add Legend
+        const legend = L.control({position: 'bottomright'});
+        legend.onAdd = function (map) {
+            const div = L.DomUtil.create('div', 'legend');
+            div.innerHTML += '<strong>Terminal Status</strong><br><br>';
+            const statuses = ['Operational', 'Operational (Trial)', 'Under Construction', 'Proposed', 'Closed'];
+            statuses.forEach(status => {
+                div.innerHTML += `<div><div class="legend-color" style="background: ${getStatusColor(status)};"></div> ${status}</div>`;
+            });
+            return div;
+        };
+        legend.addTo(map);
+
+        // Load Terminals
+        fetch('/api/terminals')
+            .then(response => response.json())
+            .then(data => {
+                let idCounter = 1;
+                const terminalLayer = L.geoJSON(data, {
+                    style: terminalStyle,
+                    onEachFeature: function (feature, layer) {
+                        // Assign dynamic ID
+                        feature.properties.display_id = idCounter++;
+                        
+                        let props = feature.properties;
+                        let popupContent = `
+                            <div style="font-family: sans-serif;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                    <h3 style="margin: 0; color: ${getStatusColor(props.status)}">${props.name || 'Unknown'}</h3>
+                                    <span style="background: #444; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 10px;">ID: ${props.display_id}</span>
+                                </div>
+                                <table style="font-size: 12px; border-collapse: collapse; width: 100%;">
+                                    <tr><td><b>Status:</b></td><td>${props.status || 'N/A'}</td></tr>
+                                    <tr><td><b>Operator:</b></td><td>${props.operator || 'N/A'}</td></tr>
+                                    <tr><td><b>State:</b></td><td>${props.state || 'N/A'}</td></tr>
+                                    <tr><td><b>Locality:</b></td><td>${props.locality_name || 'N/A'}</td></tr>
+                                    <tr><td><b>Hectares:</b></td><td>${props.hectares ? props.hectares.toFixed(2) : 'N/A'}</td></tr>
+                                </table>
+                            </div>
+                        `;
+                        layer.bindPopup(popupContent);
+
+                        // Add permanent label (ID)
+                        layer.bindTooltip(feature.properties.display_id.toString(), {
+                            permanent: true,
+                            direction: 'center',
+                            className: 'id-label'
+                        });
+                    }
+                }).addTo(map);
+                
+                if(data.features && data.features.length > 0) {
+                    map.fitBounds(terminalLayer.getBounds());
+                    document.getElementById('total-count').innerText = 'Total: ' + data.features.length;
+                }
+            })
+            .catch(error => console.error('Error loading terminals:', error));
+
+        // Load User Data (Hidden Legend)
+        fetch('/api/user_data')
+            .then(response => response.json())
+            .then(data => {
+                if(data.features && data.features.length > 0) {
+                    L.geoJSON(data, {
+                        style: { color: "#00E5FF", weight: 2, fillOpacity: 0.3 },
+                        onEachFeature: function (feature, layer) {
+                            layer.bindPopup('<b>User SHP Data</b>');
+                        }
+                    }).addTo(map);
+                }
+            })
+            .catch(error => console.error('Error loading user data:', error));
+    </script>
+</body>
+</html>
