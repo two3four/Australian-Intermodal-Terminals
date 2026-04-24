@@ -357,7 +357,7 @@
                 .then(data => {
                     L.geoJSON(data, {
                         pointToLayer: function (feature, latlng) {
-                            return L.circleMarker(latlng, { radius: 6, fillColor: "#9C27B0", color: "#fff", weight: 2, opacity: 1, fillOpacity: 0.8 });
+                            return L.circleMarker(latlng, { radius: 4, fillColor: "#9C27B0", color: "#fff", weight: 2, opacity: 1, fillOpacity: 0.8 });
                         },
                         onEachFeature: function (feature, layer) {
                             layer.bindPopup(`<b>${feature.properties.name}</b>`);
