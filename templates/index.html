@@ -65,14 +65,24 @@
         }
         /* ID Label Styling */
         .id-label {
-            background: none !important;
-            border: none !important;
-            box-shadow: none !important;
-            color: #fff !important;
-            font-weight: bold !important;
+            background: rgba(255, 255, 255, 0.8) !important;
+            border: 1px solid #ccc !important;
+            border-radius: 4px !important;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
+            color: #333 !important;
             font-size: 11px !important;
-            text-shadow: 1px 1px 2px #000, -1px -1px 2px #000, 1px -1px 2px #000, -1px 1px 2px #000;
-            pointer-events: none;
+            padding: 2px 6px !important;
+            display: none; /* Hidden by default, shown by zoom */
+            white-space: nowrap;
+        }
+        .label-id {
+            font-weight: bold;
+            color: #d32f2f;
+            margin-right: 4px;
+        }
+        .label-name {
+            color: #555;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -110,26 +120,26 @@
         const map = L.map('map', {
             center: [-25.2744, 133.7751],
             zoom: 4,
-            layers: [darkMatter] // Default
+            layers: [osm] // Default changed to OSM
         });
 
         // Base maps control
         const baseMaps = {
-            "Dark Mode": darkMatter,
             "OpenStreetMap": osm,
-            "Google Hybrid": googleHybrid
+            "Google Hybrid": googleHybrid,
+            "Dark Mode": darkMatter
         };
         L.control.layers(baseMaps).addTo(map);
 
         // Status-based Color Mapping
         function getStatusColor(status) {
             switch (status) {
-                case 'Operational': return '#4CAF50';       // Green
-                case 'Operational (Trial)': return '#8BC34A'; // Lime
-                case 'Under Construction': return '#FFC107';  // Amber
-                case 'Proposed': return '#2196F3';           // Blue
-                case 'Closed': return '#F44336';             // Red
-                default: return '#9E9E9E';                   // Grey
+                case 'Operational': return '#2E7D32';       // Darker Green for white background
+                case 'Operational (Trial)': return '#689F38'; // Darker Lime
+                case 'Under Construction': return '#F57C00';  // Darker Orange
+                case 'Proposed': return '#1976D2';           // Darker Blue
+                case 'Closed': return '#D32F2F';             // Darker Red
+                default: return '#616161';                   // Darker Grey
             }
         }
 
@@ -138,10 +148,10 @@
             const color = getStatusColor(feature.properties.status);
             return {
                 color: color,
-                weight: 1.5,
-                opacity: 0.8,
+                weight: 2,
+                opacity: 0.9,
                 fillColor: color,
-                fillOpacity: 0.5
+                fillOpacity: 0.6
             };
         }
 
@@ -187,11 +197,13 @@
                         `;
                         layer.bindPopup(popupContent);
 
-                        // Add permanent label (ID)
-                        layer.bindTooltip(feature.properties.display_id.toString(), {
+                        // Add permanent label (ID + Name)
+                        const labelText = `<span class="label-id">${feature.properties.display_id}</span> <span class="label-name">${props.name || ''}</span>`;
+                        layer.bindTooltip(labelText, {
                             permanent: true,
-                            direction: 'center',
-                            className: 'id-label'
+                            direction: 'right',
+                            className: 'id-label zoom-label',
+                            offset: [10, 0]
                         });
                     }
                 }).addTo(map);
@@ -200,8 +212,23 @@
                     map.fitBounds(terminalLayer.getBounds());
                     document.getElementById('total-count').innerText = 'Total: ' + data.features.length;
                 }
+                updateLabelVisibility();
             })
             .catch(error => console.error('Error loading terminals:', error));
+
+        // Visibility control for labels based on zoom
+        function updateLabelVisibility() {
+            const zoom = map.getZoom();
+            const elements = document.getElementsByClassName('zoom-label');
+            for (let i = 0; i < elements.length; i++) {
+                if (zoom >= 12) {
+                    elements[i].style.display = 'block';
+                } else {
+                    elements[i].style.display = 'none';
+                }
+            }
+        }
+        map.on('zoomend', updateLabelVisibility);
 
         // Load User Data (Hidden Legend)
         fetch('/api/user_data')
