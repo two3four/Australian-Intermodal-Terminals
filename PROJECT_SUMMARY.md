@@ -14,11 +14,14 @@ A web-based mapping application built with **Flask (Backend)** and **Leaflet.js 
 *   **Total Count Badge**: Real-time count of terminals displayed in the header.
 
 ### 2. PDF Data Integration ("New location")
-*   **Extracted 60 Locations**: Sourced from `map b (2).pdf`.
-*   **Smart Mapping**: Matched city names (e.g., Perth, Melbourne) to actual terminal coordinates with manual fallback for accuracy.
+*   **Extracted 56 Locations**: Sourced from `map b (2).pdf` and user requests.
+*   **Smart Mapping**: Matched city names to actual terminal coordinates with state-aware filtering (e.g., Goulburn, NSW vs Goulburn Valley, VIC).
 *   **Side-by-Side View**: Purple dots ("New location") are offset to the **North-East** of original terminals to prevent overlapping.
 *   **Styled Labels**: "New location" labels are **underlined** and colored **purple**.
-*   **Specific Edits**: Removed "Casino" point and added "Gympie", "Nambour", and "Landsborough" as requested.
+*   **Recent Updates**: 
+    - Added: Caboolture, Somerton, Ipswich, Altona, Port Botany, Port Kembla, Enfield, Dandenong South, Bacchus Marsh, Casino, Gosford, Nowra.
+    - Removed: Echuca, Kalgoorlie, Horsham, Bairnsdale, Port Augusta, Ararat, Seymour, Swan Hill, Cootamundra, Moree, Narrabri, Katherine, Bordertown, Tennant Creek, Merredin, Nhill.
+    - Fixed: Picton (now NSW), Melbourne (renamed to Dynon), Goulburn (ensured NSW).
 
 ### 3. Professional Search & Navigation
 *   **Advanced Search Bar**: Glassmorphism design with backdrop blur, SVG icon, and smooth expansion on focus.

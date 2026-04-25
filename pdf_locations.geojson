@@ -124,36 +124,6 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Narrabri",
-        "status": "New",
-        "color": "purple"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          149.76316748453218,
-          -30.319037714530122
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Moree",
-        "status": "New",
-        "color": "purple"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          149.86942432208784,
-          -29.51066673609103
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "name": "Campbelltown",
         "status": "New",
         "color": "purple"
@@ -169,15 +139,15 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Goulburn",
+        "name": "Goulburn, NSW",
         "status": "New",
         "color": "purple"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          145.35808564025936,
-          -36.3971456602483
+          149.73315817334054,
+          -34.74831278516309
         ]
       }
     },
@@ -193,21 +163,6 @@
         "coordinates": [
           149.13,
           -35.2809
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Cootamundra",
-        "status": "New",
-        "color": "purple"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          148.04947608789917,
-          -34.621669743948196
         ]
       }
     },
@@ -259,30 +214,30 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Picton",
+        "name": "Picton, NSW",
         "status": "New",
         "color": "purple"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          115.71049340284695,
-          -33.33198671577796
+          150.6,
+          -34.1667
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "name": "Melbourne",
+        "name": "Dynon",
         "status": "New",
         "color": "purple"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          144.9513140350486,
-          -37.79407033669408
+          144.94475422495668,
+          -37.78066594734617
         ]
       }
     },
@@ -298,21 +253,6 @@
         "coordinates": [
           146.3167,
           -36.35
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Seymour",
-        "status": "New",
-        "color": "purple"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          145.1333,
-          -37.0167
         ]
       }
     },
@@ -343,51 +283,6 @@
         "coordinates": [
           143.8161777682126,
           -37.50714529166219
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Ararat",
-        "status": "New",
-        "color": "purple"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          142.9333,
-          -37.2833
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Horsham",
-        "status": "New",
-        "color": "purple"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          142.21975474861713,
-          -36.68694537982319
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Nhill",
-        "status": "New",
-        "color": "purple"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          141.65,
-          -36.3333
         ]
       }
     },
@@ -433,36 +328,6 @@
         "coordinates": [
           144.2802,
           -36.757
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Echuca",
-        "status": "New",
-        "color": "purple"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          144.75,
-          -36.1333
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Swan Hill",
-        "status": "New",
-        "color": "purple"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          143.55,
-          -35.3333
         ]
       }
     },
@@ -529,21 +394,6 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Bairnsdale",
-        "status": "New",
-        "color": "purple"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          147.6167,
-          -37.8167
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "name": "Shepparton",
         "status": "New",
         "color": "purple"
@@ -574,21 +424,6 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Bordertown",
-        "status": "New",
-        "color": "purple"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.79846059958874,
-          -36.29098014868838
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "name": "Murray Bridge",
         "status": "New",
         "color": "purple"
@@ -598,21 +433,6 @@
         "coordinates": [
           139.2667,
           -35.1167
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Port Augusta",
-        "status": "New",
-        "color": "purple"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          137.7667,
-          -32.5
         ]
       }
     },
@@ -799,36 +619,6 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Kalgoorlie",
-        "status": "New",
-        "color": "purple"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          121.4447263925961,
-          -30.757223643216225
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Merredin",
-        "status": "New",
-        "color": "purple"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          118.2667,
-          -31.4833
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "name": "Bunbury",
         "status": "New",
         "color": "purple"
@@ -859,36 +649,6 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Tennant Creek",
-        "status": "New",
-        "color": "purple"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          134.19639153231537,
-          -19.676640735600486
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Katherine",
-        "status": "New",
-        "color": "purple"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          132.2698953505982,
-          -14.491308820697403
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "name": "Darwin",
         "status": "New",
         "color": "purple"
@@ -898,6 +658,186 @@
         "coordinates": [
           130.8444,
           -12.4634
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Caboolture, QLD",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.951,
+          -27.085
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Somerton, VIC",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.96366927109247,
+          -37.61049362446232
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ipswich, QLD",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.76,
+          -27.61
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Altona, VIC",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.8083535012122,
+          -37.83557696325734
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Port Botany, NSW",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.2365435814433,
+          -33.95379545361845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Port Kembla, NSW",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          150.9,
+          -34.48
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Enfield, NSW",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.09189331216015,
+          -33.87796656748468
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dandenong South",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.25654347423222,
+          -38.030941950540985
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bacchus Marsh, VIC",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.43,
+          -37.67
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Casino, NSW",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.0442329224813,
+          -28.79566820369708
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gosford, NSW",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.34,
+          -33.42
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Nowra, NSW",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          150.6,
+          -34.88
         ]
       }
     }
