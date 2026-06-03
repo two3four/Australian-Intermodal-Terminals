@@ -309,7 +309,7 @@
 
         // Updated Load Terminals to include search registration
         function loadTerminals() {
-            fetch('/api/terminals')
+            fetch('/api/terminals?t=' + new Date().getTime())
                 .then(response => response.json())
                 .then(data => {
                     let idCounter = 1;
@@ -352,7 +352,7 @@
         }
 
         function loadPdfLocations() {
-            fetch('/api/pdf_locations')
+            fetch('/api/pdf_locations?t=' + new Date().getTime())
                 .then(response => response.json())
                 .then(data => {
                     L.geoJSON(data, {
@@ -425,7 +425,6 @@
                 }
             })
             .catch(error => console.error('Error loading user data:', error));
-    </script>
     </script>
 </body>
 </html>
