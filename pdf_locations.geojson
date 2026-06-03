@@ -1,0 +1,845 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Moorebank",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          150.9435057246164,
+          -33.934440001876155
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Newcastle",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.7789,
+          -32.9283
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Grafton",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.9333,
+          -29.6833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Coffs Harbour",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.1167,
+          -30.3
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wauchope",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.7333,
+          -31.45
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Taree",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.4667,
+          -31.9
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tamworth",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          150.88697433887108,
+          -31.058291544100317
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Armidale",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.6667,
+          -30.5167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Campbelltown",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          150.8167,
+          -34.0667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Goulburn, NSW",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          149.73315817334054,
+          -34.74831278516309
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Yass / Canberra",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          149.13,
+          -35.2809
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wagga Wagga",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          147.4347195823363,
+          -35.04971818489146
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Albury",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          146.9167,
+          -36.0833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "St Marys",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          150.78998077626085,
+          -33.736517670078456
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Picton, NSW",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          150.6,
+          -34.1667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dynon",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.94475422495668,
+          -37.78066594734617
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wangaratta",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          146.3167,
+          -36.35
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Geelong",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.3617,
+          -38.1499
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ballarat",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8161777682126,
+          -37.50714529166219
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pakenham",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.4833,
+          -38.0667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Beveridge",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.0293562860488,
+          -37.43505857482352
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bendigo",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.2802,
+          -36.757
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Colac",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.5833,
+          -38.3333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Warrnambool",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          142.4768452487511,
+          -38.34624341489727
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Traralgon",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          146.5333,
+          -38.1833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mildura",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          142.15,
+          -34.1833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Shepparton",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.37527849463737,
+          -36.37934529260429
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Adelaide",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          138.53749296728435,
+          -34.80959687734358
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Murray Bridge",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.2667,
+          -35.1167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tarcoola",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5667,
+          -30.7
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Acacia Ridge",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.05372189496535,
+          -27.56141119830732
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Toowoomba",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.97116643019555,
+          -27.533416771952773
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Cairns",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.78457521981602,
+          -16.924728585431346
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Landsborough",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.966,
+          -26.808
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Nambour",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.9511,
+          -26.6269
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gympie",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.6576,
+          -26.1892
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bundaberg",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.35,
+          -24.85
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gladstone",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.28715194521433,
+          -23.827607364840222
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Rockhampton",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          150.53734809461696,
+          -23.370054856097802
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mackay",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          149.17884181131475,
+          -21.149572740838366
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Townsville",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          146.83980096420117,
+          -19.24731029929019
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bunbury",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.6333,
+          -33.3333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Perth",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115.8605,
+          -31.9505
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Darwin",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          130.8444,
+          -12.4634
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Caboolture, QLD",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.951,
+          -27.085
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Somerton, VIC",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.96366927109247,
+          -37.61049362446232
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ipswich, QLD",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.76,
+          -27.61
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Altona, VIC",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.8083535012122,
+          -37.83557696325734
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Port Botany, NSW",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.2365435814433,
+          -33.95379545361845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Port Kembla, NSW",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          150.9,
+          -34.48
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Enfield, NSW",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.09189331216015,
+          -33.87796656748468
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dandenong South",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          145.25654347423222,
+          -38.030941950540985
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bacchus Marsh, VIC",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.43,
+          -37.67
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Casino, NSW",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.0442329224813,
+          -28.79566820369708
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gosford, NSW",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.34,
+          -33.42
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Nowra, NSW",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          150.6,
+          -34.88
+        ]
+      }
+    }
+  ]
+}
