@@ -4,7 +4,7 @@ pdf_terminals = [
     "Moorebank", "Newcastle", "Grafton", "Coffs Harbour", "Wauchope", "Taree", "Tamworth", "Armidale", "Campbelltown", "Goulburn, NSW", "Yass / Canberra", "Wagga Wagga", "Albury", "St Marys", "Picton, NSW",
     "Dynon", "Wangaratta", "Geelong", "Ballarat", "Little River", "Pakenham", "Beveridge", "Bendigo", "Colac", "Warrnambool", "Traralgon", "Mildura", "Shepparton",
     "Adelaide", "Murray Bridge", "Tarcoola",
-    "Acacia Ridge", "Helensvale", "Toowoomba", "Cairns", "Landsborough", "Nambour", "Gympie", "Maryborough", "Bundaberg", "Gladstone", "Rockhampton", "Mackay", "Townsville",
+    "Acacia Ridge", "Helensvale", "Toowoomba", "Cairns", "Landsborough", "Nambour", "Gympie", "Maryborough, QLD", "Bundaberg", "Gladstone", "Rockhampton", "Mackay", "Townsville",
     "Bunbury", "Perth",
     "Darwin",
     "Caboolture, QLD", "Somerton, VIC", "Ipswich, QLD", "Altona, VIC", "Port Botany, NSW", "Port Kembla, NSW", "Enfield, NSW", "Dandenong South", "Bacchus Marsh, VIC", "Casino, NSW", "Gosford, NSW", "Nowra, NSW",
@@ -60,6 +60,7 @@ fallback_coords = {
     "Bromelton, QLD": [152.8833, -28.0000],
     "Hornsby, NSW": [151.0994, -33.7042],
     "Dubbo, NSW": [148.6011, -32.2569],
+    "Maryborough, QLD": [152.7022, -25.5376],
 }
 
 with open('terminals.geojson', 'r') as f:

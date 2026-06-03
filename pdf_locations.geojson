@@ -544,6 +544,21 @@
     {
       "type": "Feature",
       "properties": {
+        "name": "Maryborough, QLD",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.7022,
+          -25.5376
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "name": "Bundaberg",
         "status": "New",
         "color": "purple"
