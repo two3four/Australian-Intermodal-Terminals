@@ -840,6 +840,51 @@
           -34.88
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bromelton, QLD",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.9440671387767,
+          -27.944213296348924
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hornsby, NSW",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.0994,
+          -33.7042
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dubbo, NSW",
+        "status": "New",
+        "color": "purple"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          148.6384142618997,
+          -32.208918911870406
+        ]
+      }
     }
   ]
 }

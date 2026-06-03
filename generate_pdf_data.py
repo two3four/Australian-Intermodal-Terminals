@@ -7,7 +7,8 @@ pdf_terminals = [
     "Acacia Ridge", "Helensvale", "Toowoomba", "Cairns", "Landsborough", "Nambour", "Gympie", "Maryborough", "Bundaberg", "Gladstone", "Rockhampton", "Mackay", "Townsville",
     "Bunbury", "Perth",
     "Darwin",
-    "Caboolture, QLD", "Somerton, VIC", "Ipswich, QLD", "Altona, VIC", "Port Botany, NSW", "Port Kembla, NSW", "Enfield, NSW", "Dandenong South", "Bacchus Marsh, VIC", "Casino, NSW", "Gosford, NSW", "Nowra, NSW"
+    "Caboolture, QLD", "Somerton, VIC", "Ipswich, QLD", "Altona, VIC", "Port Botany, NSW", "Port Kembla, NSW", "Enfield, NSW", "Dandenong South", "Bacchus Marsh, VIC", "Casino, NSW", "Gosford, NSW", "Nowra, NSW",
+    "Bromelton, QLD", "Hornsby, NSW", "Dubbo, NSW"
 ]
 
 # Fallback coordinates for common Australian locations if no match is found in the specific database
@@ -56,6 +57,9 @@ fallback_coords = {
     "Bacchus Marsh, VIC": [144.4300, -37.6700],
     "Gosford, NSW": [151.3400, -33.4200],
     "Nowra, NSW": [150.6000, -34.8800],
+    "Bromelton, QLD": [152.8833, -28.0000],
+    "Hornsby, NSW": [151.0994, -33.7042],
+    "Dubbo, NSW": [148.6011, -32.2569],
 }
 
 with open('terminals.geojson', 'r') as f:
